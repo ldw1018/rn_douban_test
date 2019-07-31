@@ -23,6 +23,10 @@ import Me from './components/tabbars/Me'
 import Search from './components/tabbars/Search'
 import ShopCar from './components/tabbars/ShopCar'
 
+
+//图标组件
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 export default class App extends Component {
 
     constructor(props) {
@@ -41,8 +45,8 @@ export default class App extends Component {
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'home'}
                         title="Home"
-                        // renderIcon={() => <Image source={...} />}
-                        // renderSelectedIcon={() => <Image source={...} />}
+                        renderIcon={() => <Icon name="home" size={25} color="gray" />}
+                         renderSelectedIcon={() => <Icon name="home" size={25} color="#0079FF" />}
                         onPress={() => this.setState({ selectedTab: 'home' })}
                     >
                         <Home/>
@@ -52,8 +56,8 @@ export default class App extends Component {
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'search'}
                         title="搜索"
-                        // renderIcon={() => <Image source={...} />}
-                        // renderSelectedIcon={() => <Image source={...} />}
+                        renderIcon={() => <Icon name="search" size={25} color="gray" />}
+                        renderSelectedIcon={() =><Icon name="search" size={25} color="#0079FF" />}
                         onPress={() => this.setState({ selectedTab: 'search' })}
                     >
                         <Search/>
@@ -63,8 +67,8 @@ export default class App extends Component {
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'shopcar'}
                         title="购物车"
-                        // renderIcon={() => <Image source={...} />}
-                        // renderSelectedIcon={() => <Image source={...} />}
+                        renderIcon={() => <Icon name="shopping-cart" size={25} color="gray" />}
+                        renderSelectedIcon={() => <Icon name="shopping-cart" size={25} color="#0079FF" />}
                         badgeText="0"
                         onPress={() => this.setState({ selectedTab: 'shopcar' })}
                     >
@@ -75,9 +79,8 @@ export default class App extends Component {
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'profile'}
                         title="Profile"
-                        // renderIcon={() => <Image source={...} />}
-                        // renderSelectedIcon={() => <Image source={...} />}
-                        // renderBadge={() => <CustomBadgeView />}
+                        renderIcon={() => <Icon name="user" size={25} color="gray" />}
+                        renderSelectedIcon={() => <Icon name="user-o" size={25} color="#0079FF" />}
                         onPress={() => this.setState({ selectedTab: 'profile' })}
                     >
                         <Me/>
