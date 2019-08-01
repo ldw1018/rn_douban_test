@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 
-import {View, Text, StyleSheet, Image} from 'react-native'
+import {View, Text, StyleSheet, Image,TouchableHighlight} from 'react-native'
 //导入轮播图组件
 import Swiper from 'react-native-swiper'
-
+import {Actions} from 'react-native-router-flux'
 
 export default class Home extends Component {
     constructor(props) {
@@ -63,10 +63,13 @@ export default class Home extends Component {
                         <Image source={require('../../images/menu4.png')} style={{width: 60, height: 60}}/>
                         <Text>视频专区</Text>
                     </View>
-                    <View style={styles.box}>
-                        <Image source={require('../../images/menu5.png')} style={{width: 60, height: 60}}/>
-                        <Text>热映电影</Text>
-                    </View>
+                    {/*该组件只能有唯一的组件*/}
+                    <TouchableHighlight onPress={this.goMovieList} style={styles.box} underlayColor='white'>
+                        <View >
+                            <Image source={require('../../images/menu5.png')} style={{width: 60, height: 60}}/>
+                            <Text>热映电影</Text>
+                        </View>
+                    </TouchableHighlight>
                     <View style={styles.box}>
                         <Image source={require('../../images/menu6.png')} style={{width: 60, height: 60}}/>
                         <Text>联系我们</Text>
@@ -76,6 +79,11 @@ export default class Home extends Component {
 
 
         )
+    }
+    goMovieList=()=>{
+        console.warn('movie')
+        //跳转到电影列表,---编程式导航
+        Actions.movielist()
     }
 }
 
